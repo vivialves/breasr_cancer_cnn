@@ -12,7 +12,11 @@ from tensorflow.keras.preprocessing.image import img_to_array
 def main():
     model = keras.models.load_model("models/breast_cancer_classification-sa.h5")
 
-    st.title("Breast Cancer Classification")
+    st.title("Machine Learning Classification")
+    st.markdown('''
+                :gray[Breast] :red[Cancer] :orange[Classification] :green[With] :blue[a] :violet[Simple]  :orange[Architecture]
+                ''')
+    st.markdown(" :female-student::arrow_right::female-doctor:")
     uploaded_file = st.file_uploader("Upload your image", type=["jpg", "png"])
     if uploaded_file is not None:
         data = uploaded_file.getvalue()
@@ -45,6 +49,8 @@ def main():
 
         st.subheader("Predicted class:")
         st.text(predicted_class_label)
+        st.divider()
+        st.write('**Disclaimer:** This tool is for educational purposes only and should not be used as a substitute for professional medical             advice. Please consult with a healthcare provider for any health concerns.')
         
 if __name__ == "__main__":
     main()
