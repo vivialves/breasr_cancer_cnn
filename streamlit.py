@@ -68,11 +68,10 @@ def main():
         st.divider()
         st.subheader("HeatMap")
         heatmap = generate_heatmap_streamlit(data)
-        
         fig, ax = plt.subplots()
         ax.matshow(heatmap)
         st.pyplot(fig)
-        
+      
         st.divider()
         st.write('**Disclaimer:** This tool is for educational purposes only and should not be used as a substitute for professional medical             advice. Please consult with a healthcare provider for any health concerns.')
         
