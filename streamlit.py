@@ -1,13 +1,28 @@
 import streamlit as st
 import keras
-from PIL import Image
+import requests
 import numpy as np
 import io
 import tensorflow as tf
+import base64
 
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
+from PIL import Image
 from tensorflow.keras.preprocessing.image import img_to_array
 
 
+
+def generate_heatmap_streamlit(image_file):
+    files = {'image_': image_file}
+    response = requests.post("http://172.28.168.45:8000/generate_heatmap", files=files)
+    heatmap_data = response.json()["heatmap"]
+
+    # Decode the base64-encoded image
+    decoded_img = base64.b64decode(heatmap_data)
+    heatmap_img = Image.open(io.BytesIO(decoded_img))
+    return heatmap_img
 
 def main():
     model = keras.models.load_model("models/breast_cancer_classification-sa.h5")
@@ -49,6 +64,15 @@ def main():
 
         st.subheader("Predicted class:")
         st.text(predicted_class_label)
+        
+        st.divider()
+        st.subheader("HeatMap")
+        heatmap = generate_heatmap_streamlit(data)
+        
+        fig, ax = plt.subplots()
+        ax.matshow(heatmap)
+        st.pyplot(fig)
+        
         st.divider()
         st.write('**Disclaimer:** This tool is for educational purposes only and should not be used as a substitute for professional medical             advice. Please consult with a healthcare provider for any health concerns.')
         
