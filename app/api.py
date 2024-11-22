@@ -4,6 +4,7 @@ import numpy as np
 import io
 import tensorflow as tf
 import base64
+import os
 
 from PIL import Image
 from fastapi import FastAPI, UploadFile
@@ -12,6 +13,12 @@ from tensorflow.keras.preprocessing.image import img_to_array
 
 app = FastAPI(title="HEATMAP API")
 
+def path(file):
+    path = os.path.realpath(file)
+    list_path = path.split('/')
+    list_path.pop(5)
+    return '/'.join(list_path)
+
 @app.get("/")
 def homepage():
     html = """
@@ -19,12 +26,14 @@ def homepage():
            <body><h1>HEATMAP API</h1></body>
            </html>
            """
+    print(os.path.realpath('breast_cancer_classification-sa.h5'))
     return HTMLResponse(content=html, status_code=200)
 
 @app.post("/generate_heatmap")
 async def generate_heatmap(image_: UploadFile):
     data = image_.file.read()
-    model = keras.models.load_model("models/breast_cancer_classification-sa.h5")
+    path_model = path('models/breast_cancer_classification-sa.h5')
+    model = keras.models.load_model(path_model)
 
     image = Image.open(io.BytesIO(data))
 
