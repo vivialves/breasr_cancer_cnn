@@ -2,7 +2,7 @@ absl-py==2.1.0
 altair==5.4.1
 annotated-types==0.7.0
 astunparse==1.6.3
-blinker==1.8.2
+linker==1.8.2
 cachetools==5.5.0
 click==8.1.7
 dnspython==2.7.0
@@ -23,6 +23,7 @@ Markdown==3.7
 markdown-it-py==3.0.0
 matplotlib==3.9.2
 mdurl==0.1.2
+mkl-service==2.4.0
 ml-dtypes==0.4.1
 namex==0.0.8
 narwhals==1.13.2

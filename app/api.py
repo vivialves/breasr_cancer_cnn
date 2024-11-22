@@ -23,7 +23,11 @@ def path(file):
 def homepage():
     html = """
            <html><head><title>HEATMAP API</title></head>
-           <body><h1>HEATMAP API</h1></body>
+           <body>
+           <h1>HEATMAP API</h1>
+           <h2>Hello!</h2>
+           <h2>Breast Cancer API for heatmap is live</h2>
+           </body>
            </html>
            """
     print(os.path.realpath('breast_cancer_classification-sa.h5'))
