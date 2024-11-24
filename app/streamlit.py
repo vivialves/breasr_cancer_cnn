@@ -29,7 +29,7 @@ def main():
 
     st.title("Machine Learning Classification")
     st.markdown('''
-                :gray[Breast] :red[Cancer] :orange[Classification] :green[With] :blue[a] :violet[Simple]  :orange[Architecture]
+                :green[Breast] :red[Cancer] :orange[Classification] :green[With] :blue[a] :violet[Simple]  :orange[Architecture]
                 ''')
     st.markdown(" :female-student::arrow_right::female-doctor:")
     uploaded_file = st.file_uploader("Upload your image", type=["jpg", "png"])
