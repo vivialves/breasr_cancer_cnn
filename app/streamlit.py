@@ -5,7 +5,6 @@ import numpy as np
 import io
 import tensorflow as tf
 import base64
-import os
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -13,11 +12,6 @@ import matplotlib.pyplot as plt
 from PIL import Image
 from tensorflow.keras.preprocessing.image import img_to_array
 
-def path(file):
-    path = os.path.realpath(file)
-    list_path = path.split('/')
-    list_path.pop(5)
-    return '/'.join(list_path)
 
 def generate_heatmap_streamlit(image_file):
     files = {'image_': image_file}
@@ -31,8 +25,7 @@ def generate_heatmap_streamlit(image_file):
     return heatmap_img
 
 def main():
-    path_model = path('models/breast_cancer_classification-sa.h5')
-    model = keras.models.load_model(path_model)
+    model = keras.models.load_model('breast_cancer_classification-sa.h5')
 
     st.title("Machine Learning Classification")
     st.markdown('''
