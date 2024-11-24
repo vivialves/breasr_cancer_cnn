@@ -21,7 +21,6 @@ Markdown==3.7
 markdown-it-py==3.0.0
 matplotlib==3.9.2
 mdurl==0.1.2
-mkl-service==2.4.0
 ml-dtypes==0.4.1
 namex==0.0.8
 narwhals==1.13.2
