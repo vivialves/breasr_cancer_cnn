@@ -21,7 +21,8 @@ def path(file):
 
 def generate_heatmap_streamlit(image_file):
     files = {'image_': image_file}
-    response = requests.post("http://172.28.168.45:8000/generate_heatmap", files=files)
+    #response = requests.post("http://172.28.168.45:8000/generate_heatmap", files=files)
+    response = requests.post("https://api-442605-p4.nn.r.appspot.com/generate_heatmap", files=files)
     heatmap_data = response.json()["heatmap"]
 
     # Decode the base64-encoded image
