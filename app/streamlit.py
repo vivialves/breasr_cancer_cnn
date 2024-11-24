@@ -25,7 +25,7 @@ def generate_heatmap_streamlit(image_file):
     return heatmap_img
 
 def main():
-    model = keras.models.load_model('breast_cancer_classification-sa.h5')
+    model = keras.models.load_model('/breast_cancer_classification-sa.h5')
 
     st.title("Machine Learning Classification")
     st.markdown('''
