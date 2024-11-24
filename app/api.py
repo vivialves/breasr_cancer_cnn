@@ -23,7 +23,7 @@ def homepage():
            </body>
            </html>
            """
-    print(os.path.realpath('breast_cancer_classification-sa.h5'))
+    print(os.path.realpath('model/breast_cancer_classification-sa.h5'))
     return HTMLResponse(content=html, status_code=200)
 
 @app.post("/generate_heatmap")
