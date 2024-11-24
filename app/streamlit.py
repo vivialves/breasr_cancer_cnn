@@ -5,6 +5,7 @@ import numpy as np
 import io
 import tensorflow as tf
 import base64
+import os
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -25,7 +26,8 @@ def generate_heatmap_streamlit(image_file):
     return heatmap_img
 
 def main():
-    model = keras.models.load_model('breast_cancer_classification-sa.h5')
+    path = os.path.realpath('breast_cancer_classification-sa.h5')
+    model = keras.models.load_model(path)
 
     st.title("Machine Learning Classification")
     st.markdown('''
