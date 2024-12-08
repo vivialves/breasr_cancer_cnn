@@ -15,6 +15,9 @@ from tensorflow.keras.preprocessing.image import img_to_array
 
 
 def generate_heatmap_streamlit(image_file):
+    """
+    :return: It returns the heatmap image in PIL format.
+    """
     files = {'image_': image_file}
     #response = requests.post("http://128.0.0.0:8000/generate_heatmap", files=files)
     response = requests.post("https://api-442605-p4.nn.r.appspot.com/generate_heatmap", files=files)
@@ -25,7 +28,10 @@ def generate_heatmap_streamlit(image_file):
     heatmap_img = Image.open(io.BytesIO(decoded_img))
     return heatmap_img
 
-def main():
+def main() -> None:
+    """
+    Function called by streamlit.
+    """
     path = os.path.realpath('breast_cancer_classification-sa.h5')
     model = keras.models.load_model(path)
 

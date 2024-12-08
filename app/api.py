@@ -14,6 +14,9 @@ app = FastAPI(title="HEATMAP API")
 
 @app.get("/")
 def homepage():
+    """
+    :returns: It returns the script in HTML just to facilitate the visualization if the API is working.
+    """
     html = """
            <html><head><title>HEATMAP API</title></head>
            <body>
@@ -28,6 +31,13 @@ def homepage():
 
 @app.post("/generate_heatmap")
 async def generate_heatmap(image_: UploadFile):
+    """
+    :returns: It returns the heatmap in json file to be sent to the streamlit and be shown in web page.
+    {
+      "heatmap": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/"
+    } 
+    """
+    
     data = image_.file.read()
     model = keras.models.load_model('breast_cancer_classification-sa.h5')
 
