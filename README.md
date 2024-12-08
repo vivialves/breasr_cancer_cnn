@@ -1,6 +1,6 @@
 # Breast Cancer Classification Using Convolutional Neural Networks (CNNs)
 
-This project focuses on classifying breast cancer mammography images into multiple classes using Convolutional Neural Networks (CNNs). By leveraging state-of-the-art deep learning architectures and data augmentation techniques, this study aims to provide insights into the diagnostic process of breast cancer while emphasizing model interpretability.
+This project focuses on classifying breast cancer mammography images into multiple classes using Convolutional Neural Networks (CNNs). By leveraging state-of-the-art deep learning architectures and data augmentation techniques, this study aims to provide insights into the diagnostic process of breast cancer while emphasizing model interpretability. This is a first version of this study and it is open to improvements.
 
 # Table of Contents
 Introduction
@@ -14,9 +14,11 @@ Usage
 Future Work
 Contributing
 License
+Example of heatmap
+Link to access
 
 ## Introduction
-Breast cancer is a critical global health challenge. Early and accurate detection is key to improving survival rates. This project uses deep learning techniques, particularly CNNs, to classify mammography images across 8 distinct classes. The models evaluated include ShuffleNet, DenseNet, EfficientNet, VGG16, AlexNet, and a custom-designed architecture.
+Breast cancer is a critical global health challenge. Early and accurate detection is key to improving survival rates. This project uses deep learning techniques, particularly CNNs, to classify mammography images across 8 distinct classes. The models evaluated include ShuffleNet, DenseNet, EfficientNet, VGG16, AlexNet, and a custom-designed architecture. 
 
 ## Features
 
@@ -53,16 +55,18 @@ VGG16
 AlexNet
 
 ## Techniques Used
-Hyperparameter Tuning: Batch size, learning rate, and epochs were optimized.
-Data Augmentation: Techniques included rotation, flipping, and zooming.
-Transfer Learning: Applied to VGG16 and EfficientNet.
-Grad-CAM: Provided heatmaps for explainability and decision validation.
-Results
-Top-Performing Models: Simple architecture, ShuffleNet, and DenseNet achieved the best results.
-Key Metrics:
-Accuracy: Up to 98%.
-Precision, Recall, and F1-Score: Demonstrated strong classification ability.
-Grad-CAM Analysis: Confirmed the reliability of model predictions and identified potential biases.
+ - Hyperparameter Tuning: Batch size, learning rate, and epochs were optimized.
+ - Data Augmentation: Techniques included rotation, flipping, and zooming.
+ - Transfer Learning: Applied to VGG16 and EfficientNet.
+ - Grad-CAM: Provided heatmaps for explainability and decision validation.
+   
+## Results
+ - Top-Performing Models: Simple architecture, ShuffleNet, and DenseNet achieved the best results.
+ - 
+## Key Metrics:
+ - Accuracy: Up to 98%.
+ - Precision, Recall, and F1-Score: Demonstrated strong classification ability.
+ - Grad-CAM Analysis: Confirmed the reliability of model predictions and identified potential biases.
 
 ## Installation
 Clone the Repository:
