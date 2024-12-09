@@ -68,7 +68,7 @@ The following architectures were trained and evaluated:
  - Precision, Recall, and F1-Score: Demonstrated strong classification ability.
  - Grad-CAM Analysis: Confirmed the reliability of model predictions and identified potential biases.
 
-## Main libraries used
+## Main libraries
 
  - Keras
  - Tensorflow
