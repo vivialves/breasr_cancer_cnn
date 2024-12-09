@@ -79,32 +79,32 @@ The following architectures were trained and evaluated:
 
 ## Installation
  - Clone the Repository:
-git clone https://github.com/vivialves/breast_cancer_cnn
-cd breast-cancer-cnn
+1. git clone https://github.com/vivialves/breast_cancer_cnn
+2. cd breast-cancer-cnn
 
  - Set Up Virtual Environment:
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+1. python -m venv venv
+2. source venv/bin/activate  -- > # On Windows: venv\Scripts\activate
 
 
  - Install Dependencies:
-pip install -r requirements.txt
+1. pip install -r requirements.txt
 
 
 ## Usage
 
  - Train the Model:
-Run the jupyter notebooks in notebooks folder
+1. Run the jupyter notebooks in notebooks folder
 
  - Generate Heatmaps:
 
-cd app
-fastapi run api.py
+1. cd app
+2. fastapi run api.py
 
  - Streamlit
 
-cd app
-streamlit run streamlit.py   
+1. cd app
+2. streamlit run streamlit.py   
 
 
 ## Future Work
