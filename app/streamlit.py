@@ -16,10 +16,13 @@ from tensorflow.keras.preprocessing.image import img_to_array
 
 def generate_heatmap_streamlit(image_file):
     """
+    :input: image from web page uploaded
     :return: It returns the heatmap image in PIL format.
     """
     files = {'image_': image_file}
+    # endpoint local host - used wsl
     #response = requests.post("http://128.0.0.0:8000/generate_heatmap", files=files)
+    # endpoint google cloud
     response = requests.post("https://api-442605-p4.nn.r.appspot.com/generate_heatmap", files=files)
     heatmap_data = response.json()["heatmap"]
 
@@ -49,11 +52,7 @@ def main() -> None:
         if image.mode != "RGB":
             image = image.convert("RGB")     
         image_array = img_to_array(image)
-        # if image_array.ndim == 2:
-            # image_array = np.stack((image_array,) * 3, axis=-1)
         image_array = tf.image.resize(image_array, size=[224, 224])
-        # if image_array.dtype != 'float32':
-            # image_array = image_array.astype('float32')
         image_array = image_array / 255.0  
         image_array = np.expand_dims(image_array, axis=0)  
         preds = model.predict(image_array)
@@ -67,19 +66,15 @@ def main() -> None:
                         'Density 4 Benign',
                         'Density 4 Malignant']
         predicted_class_label = class_labels[predicted_class_index]
-
         print("Predicted class:", predicted_class_label)
-
         st.subheader("Predicted class:")
         st.text(predicted_class_label)
-        
         st.divider()
         st.subheader("HeatMap")
         heatmap = generate_heatmap_streamlit(data)
         fig, ax = plt.subplots()
         ax.matshow(heatmap)
         st.pyplot(fig)
-      
         st.divider()
         st.write('**Disclaimer:** This tool is for educational purposes only and should not be used as a substitute for professional medical             advice. Please consult with a healthcare provider for any health concerns.')
         
