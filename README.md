@@ -28,31 +28,31 @@ Breast cancer is a critical global health challenge. Early and accurate detectio
  - Metrics Evaluation: Performance assessed via accuracy, precision, recall, and F1-score.
 
 ## Dataset
-Source: https://data.mendeley.com/datasets/x7bvzv6cvr/1
-Paper: https://www.sciencedirect.com/science/article/pii/S2352340920308222
+ - Source: https://data.mendeley.com/datasets/x7bvzv6cvr/1
+ - Paper: https://www.sciencedirect.com/science/article/pii/S2352340920308222
 
-Structure: The dataset includes images divided into the following classes:
+ - Structure: The dataset includes images divided into the following classes:
 
-Density1Benign
-Density1Malign
-Density2Benign
-Density2Malign
-Density3Benign
-Density3Malign
-Density4Benign
-Density4Malign
+1. Density1Benign
+2. Density1Malign
+3. Density2Benign
+4. Density2Malign
+5. Density3Benign
+6. Density3Malign
+7. Density4Benign
+8. Density4Malign
 
 Preprocessing: Images resized to 224x224 and 227X227 pixels for compatibility with CNN architectures.
 
 ## Model Architectures
 The following architectures were trained and evaluated:
 
-Custom Simple Architecture: Designed from scratch for this study.
-ShuffleNet
-DenseNet
-EfficientNet
-VGG16
-AlexNet
+ - Custom Simple Architecture: Designed from scratch for this study.
+ - ShuffleNet
+ - DenseNet
+ - EfficientNet
+ - VGG16
+ - AlexNet
 
 ## Techniques Used
  - Hyperparameter Tuning: Batch size, learning rate, and epochs were optimized.
@@ -62,45 +62,59 @@ AlexNet
    
 ## Results
  - Top-Performing Models: Simple architecture, ShuffleNet, and DenseNet achieved the best results.
- - 
+   
 ## Key Metrics:
  - Accuracy: Up to 98%.
  - Precision, Recall, and F1-Score: Demonstrated strong classification ability.
  - Grad-CAM Analysis: Confirmed the reliability of model predictions and identified potential biases.
 
+## Main libraries used
+
+ - Keras
+ - Tensorflow
+ - FastAPI
+ - Streamlit
+
+* API was deployed in App Engine from Google Cloud Platform
+
 ## Installation
-Clone the Repository:
-bash
-Copy code
-git clone https://github.com/yourusername/breast-cancer-classification.git
-cd breast-cancer-classification
-Set Up Virtual Environment:
-bash
-Copy code
+ - Clone the Repository:
+git clone https://github.com/vivialves/breast_cancer_cnn
+cd breast-cancer-cnn
+
+ - Set Up Virtual Environment:
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install Dependencies:
-bash
-Copy code
+
+
+ - Install Dependencies:
 pip install -r requirements.txt
-Usage
-Train the Model:
-bash
-Copy code
-python train_model.py --model [model_name] --epochs [num_epochs]
-Generate Heatmaps:
-bash
-Copy code
-python generate_gradcam.py --model [model_name] --image_path [path_to_image]
-Evaluate the Model:
-bash
-Copy code
-python evaluate_model.py
-Future Work
-Expand the dataset for improved generalizability.
-Integrate additional imaging modalities like ultrasound or MRI.
-Develop further explainability tools for medical practitioners.
-Contributing
+
+
+## Usage
+
+ - Train the Model:
+Run the jupyter notebooks in notebooks folder
+
+ - Generate Heatmaps:
+
+cd app
+fastapi run api.py
+don`t forget to check ports
+
+ - Streamlit
+
+cd app
+streamlit run streamlit.py   
+
+
+## Future Work
+ - Expand the dataset for improved generalizability.
+ - Integrate additional imaging modalities like ultrasound or MRI.
+ - Develop further explainability tools for medical practitioners.
+ - Soon I will start to work in version 2.
+   
+## Contributing
 Contributions are welcome! Please open an issue or submit a pull request for improvements or bug fixes.
 
 ## License
