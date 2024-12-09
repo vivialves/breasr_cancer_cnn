@@ -100,7 +100,6 @@ Run the jupyter notebooks in notebooks folder
 
 cd app
 fastapi run api.py
-don`t forget to check ports
 
  - Streamlit
 
