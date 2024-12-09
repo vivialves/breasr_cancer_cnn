@@ -4,6 +4,7 @@ import numpy as np
 import io
 import tensorflow as tf
 import base64
+import os
 
 from PIL import Image
 from fastapi import FastAPI, UploadFile
