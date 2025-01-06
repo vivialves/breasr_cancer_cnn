@@ -98,6 +98,6 @@ async def generate_heatmap(image_: UploadFile):
         
 if __name__ == "__main__":
     uvicorn.run("heatmap-api:app",
-                host="172.28.168.45",
+                host="127.0.0.0",
                 port=8000,
                 reload=True)
